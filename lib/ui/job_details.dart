@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:github_job/ui/widgets/job_single_view.dart';
+import 'package:github_job/utils/constant.dart';
+import 'package:github_job/utils/route_path.dart';
 
 class JobDetails extends StatelessWidget {
   final String id;
@@ -11,9 +13,14 @@ class JobDetails extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(
-          Icons.arrow_back,
-          color: Colors.white,
+        leading: IconButton(
+          onPressed: () => {
+            Navigator.pushNamed(context, RoutePath.singleJob)
+          },
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
         ),
         title: Text("Job Details"),
       ),

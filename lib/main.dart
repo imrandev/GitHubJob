@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:github_job/blocs/single/single_job_bloc.dart';
 import 'package:github_job/route/router.dart';
-import 'package:github_job/utils/constant.dart';
+import 'package:github_job/utils/route_path.dart';
 
 import 'blocs/jobs/jobs_bloc.dart';
 import 'data/repository/job_repository.dart';
@@ -30,7 +30,7 @@ class GithubJobApp extends StatelessWidget {
         ),
         title: "GitHub Job",
         onGenerateRoute: GitHubJobRouter.generateRoute,
-        initialRoute: Constant.jobHome,
+        initialRoute: RoutePath.home,
         debugShowCheckedModeBanner: false,
       ),
     );

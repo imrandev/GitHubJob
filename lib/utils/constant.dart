@@ -1,8 +1,4 @@
 class Constant {
-  /*Routes*/
-  static const String jobHome = "/";
-  static const String jobDetails = "/details";
-
   /*Network Status Code*/
   static const int ok = 200;
 

@@ -3,22 +3,22 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:github_job/blocs/single/single_job_bloc.dart';
 import 'package:github_job/ui/home.dart';
 import 'package:github_job/ui/job_details.dart';
-import 'package:github_job/ui/widgets/job_list_view.dart';
-import 'package:github_job/utils/constant.dart';
+import 'package:github_job/utils/path_arguments.dart';
+import 'package:github_job/utils/route_path.dart';
 
 class GitHubJobRouter {
 
   static Route<dynamic> generateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
-      case Constant.jobHome:
+      case RoutePath.home:
         {
           return MaterialPageRoute(
             builder: (_) => Home(),
           );
         }
-      case Constant.jobDetails:
+      case RoutePath.singleJob:
         {
-          final ScreenArguments args = routeSettings.arguments;
+          final PathArguments args = routeSettings.arguments;
           return MaterialPageRoute(
             builder: (context) {
               return BlocProvider.value(

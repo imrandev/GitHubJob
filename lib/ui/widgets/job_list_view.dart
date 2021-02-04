@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:github_job/blocs/base/base_state.dart';
 import 'package:github_job/blocs/jobs/jobs_bloc.dart';
-import 'package:github_job/utils/constant.dart';
+import 'package:github_job/utils/path_arguments.dart';
+import 'package:github_job/utils/route_path.dart';
 
 class JobListView extends StatelessWidget {
 
@@ -23,8 +24,8 @@ class JobListView extends StatelessWidget {
                 onTap: () => {
                   Navigator.pushNamed(
                     context,
-                    Constant.jobDetails,
-                    arguments: ScreenArguments(
+                    RoutePath.singleJob,
+                    arguments: PathArguments(
                       state.jobs[index].id,
                     ),
                   ),
@@ -70,10 +71,4 @@ class JobListView extends StatelessWidget {
       },
     );
   }
-}
-
-class ScreenArguments {
-  final String id;
-
-  ScreenArguments(this.id);
 }
