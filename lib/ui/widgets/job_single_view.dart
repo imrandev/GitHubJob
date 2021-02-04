@@ -14,7 +14,7 @@ class JobSingleView extends StatelessWidget {
 
     return BlocBuilder<JobBloc, JobState>(
       builder: (context, state) {
-        if (state is JobLoaded) {
+        if (state is SingleJobLoaded) {
           return Center(
             child: Text("${state.job.title}"),
           );

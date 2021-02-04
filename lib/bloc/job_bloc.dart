@@ -26,7 +26,7 @@ class JobBloc extends Bloc<JobListEvent, JobState> {
         final url = Constant.baseUrl + "/positions/${event.id}.json";
         final job = await jobRepository.fetchSingleJob(url);
         print(job.id);
-        yield JobLoaded(jobs : null, job: job);
+        yield SingleJobLoaded(job: job);
       }
     } on Error {
       yield JobError("Something went wrong!");

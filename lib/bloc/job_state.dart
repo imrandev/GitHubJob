@@ -12,9 +12,14 @@ class InitialState extends JobState {
 
 class JobLoaded extends JobState {
   final List<GitHubJob> jobs;
+  const JobLoaded({this.jobs});
+  List<Object> get props => [jobs];
+}
+
+class SingleJobLoaded extends JobState {
   final GitHubJob job;
-  const JobLoaded({this.jobs, this.job});
-  List<Object> get props => [jobs, job];
+  const SingleJobLoaded({this.job});
+  List<Object> get props => [job];
 }
 
 class JobError extends JobState {
