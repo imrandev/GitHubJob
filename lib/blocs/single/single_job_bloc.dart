@@ -1,28 +1,26 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:github_job/blocs/base/base_event.dart';
+import 'package:github_job/blocs/base/base_state.dart';
 import 'package:github_job/data/model/github_job.dart';
 import 'package:github_job/data/repository/job_repository.dart';
 import 'package:github_job/utils/constant.dart';
-import 'package:meta/meta.dart';
 
-part 'job_event.dart';
-part 'job_state.dart';
+part 'single_job_event.dart';
+part 'single_job_state.dart';
 
-class JobBloc extends Bloc<JobListEvent, JobState> {
+class SingleJobBloc extends Bloc<BaseJobEvent, BaseJobState> {
+
   final JobRepository jobRepository;
 
-  JobBloc(this.jobRepository) : super(InitialState());
+  SingleJobBloc(this.jobRepository) : super(InitialState());
 
   @override
-  Stream<JobState> mapEventToState(JobListEvent event) async* {
+  Stream<BaseJobState> mapEventToState(BaseJobEvent event) async* {
     yield InitialState();
     try {
-      if (event is FetchJobList) {
-        final jobs =
-            await jobRepository.fetchGitHubJobs(Constant.githubJobPositionsApi);
-        yield JobLoaded(jobs: jobs);
-      } else if (event is FetchSingleJob) {
+      if (event is FetchSingleJob) {
         final url = Constant.baseUrl + "/positions/${event.id}.json";
         final job = await jobRepository.fetchSingleJob(url);
         print(job.id);

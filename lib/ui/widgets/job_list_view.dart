@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:github_job/bloc/job_bloc.dart';
+import 'package:github_job/blocs/base/base_state.dart';
+import 'package:github_job/blocs/jobs/jobs_bloc.dart';
 import 'package:github_job/utils/constant.dart';
 
 class JobListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // initial state call the job list api
-    BlocProvider.of<JobBloc>(context).add(FetchJobList());
 
-    return BlocBuilder<JobBloc, JobState>(
+    // initial state call the job list api
+    BlocProvider.of<JobsBloc>(context).add(FetchJobs());
+
+    return BlocBuilder<JobsBloc, BaseJobState>(
       builder: (context, state) {
         if (state is JobLoaded) {
           return ListView.builder(

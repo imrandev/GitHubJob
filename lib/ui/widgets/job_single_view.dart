@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:github_job/bloc/job_bloc.dart';
+import 'package:github_job/blocs/base/base_state.dart';
+import 'package:github_job/blocs/single/single_job_bloc.dart';
 
 class JobSingleView extends StatelessWidget {
   final String id;
@@ -10,9 +11,9 @@ class JobSingleView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // initial state call the single job api
-    BlocProvider.of<JobBloc>(context).add(FetchSingleJob(id));
+    BlocProvider.of<SingleJobBloc>(context).add(FetchSingleJob(id));
 
-    return BlocBuilder<JobBloc, JobState>(
+    return BlocBuilder<SingleJobBloc, BaseJobState>(
       builder: (context, state) {
         if (state is SingleJobLoaded) {
           return Center(
