@@ -1,8 +1,8 @@
 import 'dart:convert';
 
+import 'package:github_job/data/model/github_job.dart';
 import 'package:github_job/utils/constant.dart';
 
-import '../model/github_job.dart';
 import 'package:http/http.dart' as http;
 
 abstract class BaseJobRepository {

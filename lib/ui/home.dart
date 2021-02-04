@@ -3,8 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:github_job/blocs/base/base_state.dart';
 import 'package:github_job/blocs/jobs/jobs_bloc.dart';
 import 'package:github_job/ui/widgets/job_list_view.dart';
-import 'package:github_job/utils/path_arguments.dart';
-import 'package:github_job/utils/route_path.dart';
 
 class Home extends StatelessWidget {
   @override
