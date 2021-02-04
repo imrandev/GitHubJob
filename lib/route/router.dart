@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:github_job/bloc/job_list_bloc.dart';
+import 'package:github_job/bloc/job_bloc.dart';
 import 'package:github_job/ui/home.dart';
 import 'package:github_job/ui/job_details.dart';
 import 'package:github_job/ui/widgets/job_list_view.dart';

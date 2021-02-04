@@ -1,4 +1,4 @@
-part of 'job_list_bloc.dart';
+part of 'job_bloc.dart';
 
 @immutable
 abstract class JobListEvent {

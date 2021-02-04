@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:github_job/bloc/job_list_bloc.dart';
+import 'package:github_job/bloc/job_bloc.dart';
 import 'package:github_job/utils/constant.dart';
 
 class JobListView extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     // initial state call the job list api
     BlocProvider.of<JobListBloc>(context).add(FetchJobList());
 
-    return BlocBuilder<JobListBloc, JobListState>(
+    return BlocBuilder<JobListBloc, JobState>(
       builder: (context, state) {
-        if (state is JobListLoaded) {
+        if (state is JobLoaded) {
           return ListView.builder(
             physics: AlwaysScrollableScrollPhysics(),
             itemCount: state.jobs.length,
@@ -48,11 +49,11 @@ class JobListView extends StatelessWidget {
               );
             },
           );
-        } else if (state is JobListInitial) {
+        } else if (state is InitialState) {
           return Center(
             child: CircularProgressIndicator(),
           );
-        } else if (state is JobListError) {
+        } else if (state is JobError) {
           return Center(
             child: Text(
               "${state.msg}",

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:github_job/bloc/job_list_bloc.dart';
+import 'package:github_job/bloc/job_bloc.dart';
 import 'package:github_job/ui/widgets/job_single_view.dart';
 
 class JobDetails extends StatelessWidget {

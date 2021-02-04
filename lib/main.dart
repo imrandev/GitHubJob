@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:github_job/route/router.dart';
 import 'package:github_job/utils/constant.dart';
 
-import 'bloc/job_list_bloc.dart';
+import 'bloc/job_bloc.dart';
 import 'data/repository/job_repository.dart';
 
 void main() {
