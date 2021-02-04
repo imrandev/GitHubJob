@@ -14,7 +14,7 @@ class GithubJobApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => JobListBloc(JobRepository()),
+      create: (context) => JobBloc(JobRepository()),
       child: MaterialApp(
         theme: ThemeData(
           primaryColor: Colors.blue,

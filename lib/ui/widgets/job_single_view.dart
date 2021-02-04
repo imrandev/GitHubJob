@@ -10,9 +10,9 @@ class JobSingleView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // initial state call the single job api
-    BlocProvider.of<JobListBloc>(context).add(FetchSingleJob(id));
+    BlocProvider.of<JobBloc>(context).add(FetchSingleJob(id));
 
-    return BlocBuilder<JobListBloc, JobState>(
+    return BlocBuilder<JobBloc, JobState>(
       builder: (context, state) {
         if (state is JobLoaded) {
           return Center(

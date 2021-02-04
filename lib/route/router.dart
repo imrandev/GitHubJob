@@ -18,13 +18,11 @@ class GitHubJobRouter {
         }
       case Constant.jobDetails:
         {
-
           final ScreenArguments args = routeSettings.arguments;
-
           return MaterialPageRoute(
             builder: (context) {
               return BlocProvider.value(
-                value: BlocProvider.of<JobListBloc>(context),
+                value: BlocProvider.of<JobBloc>(context),
                 child: JobDetails(args.id),
               );
             },

@@ -8,9 +8,9 @@ class JobListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // initial state call the job list api
-    BlocProvider.of<JobListBloc>(context).add(FetchJobList());
+    BlocProvider.of<JobBloc>(context).add(FetchJobList());
 
-    return BlocBuilder<JobListBloc, JobState>(
+    return BlocBuilder<JobBloc, JobState>(
       builder: (context, state) {
         if (state is JobLoaded) {
           return ListView.builder(
