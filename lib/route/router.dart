@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:github_job/blocs/single/single_job_bloc.dart';
 import 'package:github_job/ui/home.dart';
-import 'package:github_job/ui/job_details.dart';
+import 'package:github_job/ui/pages/single_job_page.dart';
 import 'package:github_job/utils/path_arguments.dart';
 import 'package:github_job/utils/route_path.dart';
 
@@ -23,7 +23,7 @@ class GitHubJobRouter {
             builder: (context) {
               return BlocProvider.value(
                 value: BlocProvider.of<SingleJobBloc>(context),
-                child: JobDetails(args.id),
+                child: SingleJobPage(args.id),
               );
             },
           );
