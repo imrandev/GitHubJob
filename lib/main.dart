@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:github_job/blocs/single/single_job_bloc.dart';
@@ -25,8 +26,12 @@ class GithubJobApp extends StatelessWidget {
       ],
       child: MaterialApp(
         theme: ThemeData(
-          primaryColor: Colors.blue,
+          primaryColor: Color(0xff0C090A),
           backgroundColor: Colors.white,
+          pageTransitionsTheme: PageTransitionsTheme(builders: {
+            TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+            TargetPlatform.android: ZoomPageTransitionsBuilder(),
+          }),
         ),
         title: "GitHub Job",
         onGenerateRoute: GitHubJobRouter.generateRoute,

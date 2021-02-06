@@ -23,7 +23,7 @@ class GitHubJobRouter {
             builder: (context) {
               return BlocProvider.value(
                 value: BlocProvider.of<SingleJobBloc>(context),
-                child: SingleJobPage(args.id),
+                child: SingleJobPage(id: args.id, title: args.name),
               );
             },
           );

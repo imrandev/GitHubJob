@@ -6,8 +6,9 @@ import 'package:github_job/ui/widgets/job_single_view.dart';
 
 class SingleJobPage extends StatelessWidget {
   final String id;
+  final String title;
 
-  SingleJobPage(this.id);
+  SingleJobPage({this.id, @required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,13 @@ class SingleJobPage extends StatelessWidget {
             color: Colors.white,
           ),
         ),
-        title: Text("Job Details"),
+        title: Text(
+          "$title",
+          style: TextStyle(
+            fontFamily: 'Titillium Web',
+            fontWeight: FontWeight.w300,
+          ),
+        ),
       ),
       body: Container(
         child: BlocBuilder<SingleJobBloc, BaseJobState>(
@@ -41,6 +48,16 @@ class SingleJobPage extends StatelessWidget {
               child: Text("No job found"),
             );
           },
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+
+        },
+        backgroundColor: Color(0xffF49679),
+        child: Icon(
+          Icons.assignment_turned_in,
+          color: Colors.white,
         ),
       ),
     );
